@@ -1,4 +1,4 @@
-import css from './Feedback.module.css'
+import css from '../Feedback.module.css'
 import PropTypes from 'prop-types';
 
 export const Section = (({ title, children }) => {

@@ -1,4 +1,4 @@
-import css from './Feedback.module.css'
+import css from '../Feedback.module.css'
 import PropTypes from 'prop-types';
 
 export const Statistics = (({ good, neutral, bad, total, positivePercentage }) => {
