@@ -21,16 +21,16 @@ export class Feedback extends Component {
             
         }));
     };
-    handleIncrementN = () => {
-        this.setState(prevState => ({
-            neutral: prevState.neutral + 1,
-        }));
-    };
-    handleIncrementB = () => {
-        this.setState(prevState => ({
-            bad: prevState.bad + 1,
-        }));
-    };
+    // handleIncrementN = () => {
+    //     this.setState(prevState => ({
+    //         neutral: prevState.neutral + 1,
+    //     }));
+    // };
+    // handleIncrementB = () => {
+    //     this.setState(prevState => ({
+    //         bad: prevState.bad + 1,
+    //     }));
+    // };
     
     countTotalFeedback = () => {
         const { good, neutral, bad } = this.state;
@@ -46,7 +46,7 @@ export class Feedback extends Component {
 
     render() {       
         const { good, neutral, bad } = this.state;
-        const { handleIncrementB, handleIncrementG, handleIncrementN, countPositiveFeedbackPercentage, countTotalFeedback } = this;
+        const { handleIncrementG, countPositiveFeedbackPercentage, countTotalFeedback } = this;
         return (
                 <Section title="Please leave feedback">
                 <FeedbackOptions options={["good", "neutral", "bad"]} onLeaveFeedback={handleIncrementG} />
