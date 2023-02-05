@@ -12,20 +12,9 @@ export class App extends Component  {
         bad: 0,
     }
     
-    handleIncrementG = () => {
+    handleIncrement = option => {
         this.setState(prevState => ({
-            good: prevState.good + 1,
-            
-        }));
-    };
-    handleIncrementN = () => {
-        this.setState(prevState => ({
-            neutral: prevState.neutral + 1
-        }));
-    }
-    handleIncrementB = () => {
-        this.setState(prevState => ({
-            bad: prevState.bad + 1,
+            [option]: prevState[option] + 1,
         }));
     };
     countTotalFeedback = () => {
@@ -41,10 +30,10 @@ export class App extends Component  {
 
     render() {
         const { good, neutral, bad } = this.state;
-        const { handleIncrementG, handleIncrementN, handleIncrementB, countPositiveFeedbackPercentage, countTotalFeedback } = this;
+        const { handleIncrement, countPositiveFeedbackPercentage, countTotalFeedback } = this;
         return (
             <Section title="Please leave feedback">
-                <FeedbackOptions options={["good", "neutral", "bad"]} onLeaveFeedback={{handleIncrementG, handleIncrementN, handleIncrementB}} />
+                <FeedbackOptions options={['good', 'neutral', 'bad']} onLeaveFeedback={handleIncrement} />
                 <p className={css.title}>Statistics</p>
                 {countTotalFeedback() === 0 ?
                     <Notification message="There is no feedback" /> :
